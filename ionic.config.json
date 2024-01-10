@@ -1,0 +1,8 @@
+{
+  "name": "ErikaCalculator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "d76eaba1"
+}
