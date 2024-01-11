@@ -1,17 +1,66 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title style="text-align: center;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color: #FF9DBC;">{{titulo}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<div id="content" [style]="fondo">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+  <div *ngIf="!pro">
+    <div id="calculadora">
+      <ion-input  name="cmInput" [(ngModel)]="cmsInput" id="cm-input" label="Centimetros" label-placement="floating" type="number" inputmode="numeric" fill="outline" placeholder=""></ion-input>
+      <ion-button (click)="Calcular()" id="btn-calc" size="large" expand="block"><img width="60" height="60" src="../../assets/images/calculadora.png" alt=""></ion-button>
+    </div>
+
+    <div  id="resultados">
+      <!-- cm Totales -->
+      <ion-input disabled="true" class="result-input" name="cmsOutput" [(ngModel)]="cmsOutput" label="Centimetros Totales" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+      <br>
+
+      <!-- cm Adelnate -->
+      <label style="margin-top: 1rem;margin-bottom: 0.5rem;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:#4A0688 ;">Centimetros Adelante</label>
+      <ion-input  disabled="true"  class="result-input" name="cmsFrenteOutput1" [(ngModel)]="cmsFrenteOutput1" label="cm" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+      <ion-input  disabled="true"  class="result-input" name="cmsFrenteOutput2" [(ngModel)]="cmsFrenteOutput2" label="cm" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+      <br>
+
+      <!-- cm Atras -->
+      <label style="margin-top: 0.5rem;margin-bottom: 1.5rem;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:#4A0688 ;">Centimetros Atras</label>
+      <ion-input  disabled="true"  class="result-input" name="cmsAtrasOutput1" [(ngModel)]="cmsAtrasOutput1" label="cm" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+      <ion-input  disabled="true"  class="result-input" name="cmsAtrasOutput2" [(ngModel)]="cmsAtrasOutput2" label="cm" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+    </div>
+</div>
+
+<div *ngIf="pro">
+  <div id="calculadora">
+    <ion-input  name="cmInput" [(ngModel)]="cmsInput" class="cm-input-pro" label="Centimetros" label-placement="floating" type="number" inputmode="numeric" fill="outline" placeholder=""></ion-input>
+    <ion-input  name="cmsAdelanteInput" [(ngModel)]="cmsAdelanteInput" class="cm-input-pro" label="Centimetros Extra Adelante" label-placement="floating" type="number" inputmode="numeric" fill="outline" placeholder=""></ion-input>
+    <ion-input  name="cmsAtrasInput" [(ngModel)]="cmsAtrasInput" class="cm-input-pro" label="Centimetros Extra Atras" label-placement="floating" type="number" inputmode="numeric" fill="outline" placeholder=""></ion-input>
+    <ion-button (click)="CalculoPro()" id="btn-calc-pro" size="large" expand="block"><img width="60" height="60" src="../../assets/images/calculadora.png" alt=""></ion-button>
+  </div>
+
+  <div  id="resultados">
+    <!-- cm Totales -->
+    <ion-input disabled="true" class="result-input-pro" name="cmsOutput" [(ngModel)]="cmsOutput" label="Centimetros Totales" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+    <br>
+
+    <!-- cm Adelnate -->
+    <label style="margin-top: 1rem;margin-bottom: 0.5rem;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:#4A0688 ;">Centimetros Adelante</label>
+    <ion-input  disabled="true"  class="result-input-pro" name="cmsAdelante" [(ngModel)]="cmsAdelante" label="cm" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+    <br>
+
+    <!-- cm Atras -->
+    <label style="margin-top: 0.5rem;margin-bottom: 1.5rem;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:#4A0688 ;">Centimetros Atras</label>
+    <ion-input  disabled="true"  class="result-input-pro " name="cmsAtras" [(ngModel)]="cmsAtras" label="cm" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+  </div>
+</div>
+
+
+<br>
+<ion-button (click)="Calculadora()" id="btn-change" size="large" expand="block">{{tipoCalc}}</ion-button>
+  
+</div>
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title  style="text-align: center;font-size: small;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color: #CDAAEE;">Developed by Jeronimo Granadillo</ion-title>
+  </ion-toolbar>
+</ion-footer>
